@@ -24,7 +24,6 @@ var textDigits = map[string]string{
 
 func sumSlice(vals []int) int {
 	sum := 0
-
 	for _, val := range vals {
 		sum += val
 	}
@@ -57,7 +56,6 @@ func prepText(text string) string {
 
 	// sort the indices so we can replace them in order (left to right)
 	charList := strings.Split(text, "")
-
 	for k, v := range stringsToReplace {
 		charList[k] = textDigits[v]
 	}
