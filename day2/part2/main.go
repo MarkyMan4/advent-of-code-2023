@@ -11,6 +11,8 @@ import (
 
 type draw map[string]int
 
+var colors = []string{"red", "green", "blue"}
+
 func parseGameData(text string) []draw {
 	gameDraws := []draw{}
 
@@ -30,7 +32,7 @@ func parseGameData(text string) []draw {
 		}
 
 		// put defaults as 0 if color wasn't present
-		for _, color := range []string{"red", "green", "blue"} {
+		for _, color := range colors {
 			if _, ok := counts[color]; !ok {
 				counts[color] = 0
 			}
@@ -50,7 +52,7 @@ func calcCubePower(draws []draw) int {
 	}
 
 	for _, d := range draws {
-		for _, color := range []string{"red", "green", "blue"} {
+		for _, color := range colors {
 			if d[color] > minCounts[color] {
 				minCounts[color] = d[color]
 			}
