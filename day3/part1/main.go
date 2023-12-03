@@ -1,17 +1,3 @@
-/*
-idea
-----
-prevLine = nil
-cursor = (0, 0)
-curLine = scanner.Text()
-
-while scanner.Scan() {
-	nextLine = scanner.Text()
-}
-
-
-*/
-
 package main
 
 import (

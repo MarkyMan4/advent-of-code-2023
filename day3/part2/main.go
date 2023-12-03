@@ -1,17 +1,3 @@
-/*
-idea
-----
-prevLine = nil
-cursor = (0, 0)
-curLine = scanner.Text()
-
-while scanner.Scan() {
-	nextLine = scanner.Text()
-}
-
-
-*/
-
 package main
 
 import (
@@ -24,14 +10,6 @@ import (
 
 var numberRegex = regexp.MustCompile("[0-9]+")
 var astksRegex = regexp.MustCompile(regexp.QuoteMeta("*"))
-
-func isNumeric(text string) bool {
-	if _, err := strconv.Atoi(text); err != nil {
-		return false
-	}
-
-	return true
-}
 
 func charAt(text string, index int) string {
 	return string([]rune(text)[index])
@@ -62,27 +40,6 @@ func multSlice(nums []int) int {
 	}
 
 	return product
-}
-
-// anything besides a "." and a digit is a symbol
-func isSymbolAtIndex(text string, index int) bool {
-	char := charAt(text, index)
-	return char != "." && !isNumeric(char)
-}
-
-// check text range based on idxs for symbols
-// subtracts one from start and adds one to end (if possible) to check diaganolly as well
-func rangeHasSymbols(text string, idxs []int) bool {
-	iterStart := max(idxs[0]-1, 0)
-	iterEnd := min(idxs[1]+1, len(text))
-
-	for i := iterStart; i < iterEnd; i++ {
-		if isSymbolAtIndex(text, i) {
-			return true
-		}
-	}
-
-	return false
 }
 
 func getNumFromPos(text string, idxs []int) int {
